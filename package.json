@@ -1,0 +1,12 @@
+{
+  "name": "angii-dulceria",
+  "version": "1.0.0",
+  "description": "Single Page Application artesanal para Angii Dulcería con pedidos a WhatsApp",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "keywords": ["alfajores", "ecommerce", "whatsapp", "spa", "tailwind"],
+  "author": "Angii Dulcería",
+  "license": "MIT"
+}

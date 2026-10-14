@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Angii Dulcería | Alfajores Artesanales</title>
+  
+  <!-- Google Fonts: Poppins & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FFFDF9',
+            vanilla: '#FAF6EE',
+            caramel: {
+              50: '#FBF5EE',
+              100: '#F5E6D4',
+              200: '#EBC9A6',
+              400: '#D9955F',
+              500: '#C87D43',
+              600: '#B46B33',
+              700: '#8E4F20',
+            },
+            chocolate: {
+              DEFAULT: '#4A2E1B',
+              dark: '#351F10',
+              light: '#65432B',
+              soft: '#F4ECE4'
+            },
+            wa: {
+              DEFAULT: '#25D366',
+              dark: '#1EBE5D',
+              hover: '#128C7E'
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          boxShadow: {
+            'warm': '0 10px 30px -10px rgba(200, 125, 67, 0.15)',
+            'warm-lg': '0 20px 40px -15px rgba(74, 46, 27, 0.18)',
+            'glow-wa': '0 8px 25px -5px rgba(37, 211, 102, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos adicionales & animaciones fluidas */
+    body {
+      background-color: #FFFDF9;
+      color: #4A2E1B;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Animación de entrada suave */
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounceSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+    .animate-bounce-soft {
+      animation: bounceSoft 2s infinite ease-in-out;
+    }
+
+    /* Ocultar barra de desplazamiento manteniendo funcionalidad */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Pulse sutil para botones */
+    .tap-effect:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-caramel-100 selection:text-chocolate pb-28 md:pb-16">
+
+  <!-- ================= TOP BANNER & HEADER ================= -->
+  <header class="bg-gradient-to-r from-chocolate via-chocolate-dark to-chocolate text-cream relative overflow-hidden shadow-md">
+    <!-- Decoración sutil de fondo -->
+    <div class="absolute -right-12 -top-12 w-48 h-48 bg-caramel-500/10 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="absolute -left-12 -bottom-12 w-48 h-48 bg-caramel-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+    <!-- Barra superior de frescura -->
+    <div class="bg-caramel-500/20 border-b border-caramel-500/30 py-1.5 px-4 text-center">
+      <div class="inline-flex items-center gap-2 text-xs font-medium tracking-wide text-caramel-100">
+        <span class="inline-block w-2 h-2 rounded-full bg-caramel-400 animate-ping"></span>
+        <span class="bg-caramel-500/40 text-amber-100 px-2.5 py-0.5 rounded-full font-semibold uppercase tracking-wider text-[10px]">Garantía Artesanal</span>
+        <span>✨ Horneadas frescas todos los días</span>
+      </div>
+    </div>
+
+    <!-- Contenido Principal del Header -->
+    <div class="max-w-4xl mx-auto px-4 pt-6 pb-8 text-center relative z-10">
+      <!-- Logo / Icono repostero -->
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-b from-caramel-100 to-vanilla shadow-warm-lg p-1.5 mb-3 ring-4 ring-caramel-500/30">
+        <div class="w-full h-full rounded-full bg-cream border border-caramel-200 flex items-center justify-center text-caramel-600">
+          <!-- SVG Ícono Repostero (Galleta / Alfajor & Chef) -->
+          <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9" class="stroke-caramel-500" stroke-dasharray="2 3"/>
+            <path d="M7 10h10" class="stroke-caramel-700"/>
+            <path d="M7 14h10" class="stroke-caramel-700"/>
+            <path d="M9 7v2" class="stroke-caramel-500"/>
+            <path d="M15 7v2" class="stroke-caramel-500"/>
+            <circle cx="12" cy="12" r="1.5" fill="#C87D43"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Nombre y Titular -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight text-white drop-shadow-sm mb-1.5">
+        Angii <span class="text-caramel-400 font-serif italic">Dulcería</span>
+      </h1>
+      <p class="text-xs sm:text-sm text-caramel-100/90 max-w-md mx-auto font-light leading-relaxed">
+        El sabor irresistible de nuestros alfajores artesanales, elaborados con masa suave y abundante dulce de leche repostero.
+      </p>
+
+      <!-- Badges de Información -->
+      <div class="mt-4 flex flex-wrap justify-center items-center gap-2 text-xs">
+        <span class="inline-flex items-center gap-1.5 bg-chocolate-light/70 backdrop-blur-sm border border-caramel-500/30 text-caramel-100 px-3 py-1 rounded-full shadow-sm">
+          <svg class="w-3.5 h-3.5 text-caramel-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path stroke-width="2" d="M12 6v6l4 2"/>
+          </svg>
+          Horario: 9:00 AM - 6:00 PM
+        </span>
+        <span class="inline-flex items-center gap-1.5 bg-chocolate-light/70 backdrop-blur-sm border border-caramel-500/30 text-caramel-100 px-3 py-1 rounded-full shadow-sm">
+          <svg class="w-3.5 h-3.5 text-caramel-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Retiro & Delivery
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT: CATÁLOGO ================= -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Título de Sección -->
+    <div class="flex items-center justify-between mb-6 border-b border-caramel-100 pb-3">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-serif font-bold text-chocolate flex items-center gap-2">
+          <span>Nuestra Selección</span>
+          <span class="text-lg">🍪</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-chocolate/70">Arma tu combo y envíanos tu pedido en un clic.</p>
+      </div>
+      <span class="text-xs font-semibold px-2.5 py-1 bg-caramel-100 text-caramel-700 rounded-lg">Precios en USD</span>
+    </div>
+
+    <!-- Grid de Productos -->
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Las cards se renderizan dinámicamente con JavaScript -->
+    </div>
+
+    <!-- Garantía y Nota dulce -->
+    <div class="mt-10 p-5 rounded-2xl bg-gradient-to-r from-caramel-50 to-vanilla border border-caramel-100 text-center">
+      <p class="text-chocolate text-xs sm:text-sm font-medium flex items-center justify-center gap-2">
+        <span class="text-base">👩‍🍳</span> Todos nuestros pedidos se preparan y empaquetan con máximo cuidado higiénico.
+      </p>
+    </div>
+  </main>
+
+  <!-- ================= CARRITO FLOTANTE (BOTTOM BAR) ================= -->
+  <div id="floating-cart-bar" class="fixed bottom-0 left-0 right-0 z-40 p-3 sm:p-4 bg-gradient-to-t from-cream via-cream/95 to-transparent pointer-events-none transition-all duration-300">
+    <div class="max-w-md mx-auto pointer-events-auto">
+      <button onclick="openCart()" id="floating-cart-btn" class="w-full bg-chocolate hover:bg-chocolate-dark text-cream p-3.5 sm:p-4 rounded-2xl shadow-warm-lg flex items-center justify-between gap-3 border border-caramel-500/20 tap-effect transition duration-200">
+        <!-- Izquierda: Ícono y Contador -->
+        <div class="flex items-center gap-3">
+          <div class="relative bg-caramel-500/30 p-2.5 rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-caramel-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            <span id="floating-cart-count" class="absolute -top-1.5 -right-1.5 bg-caramel-500 text-white font-bold text-xs rounded-full w-5 h-5 flex items-center justify-center shadow">
+              0
+            </span>
+          </div>
+          <div class="text-left">
+            <span class="text-xs uppercase tracking-wider text-caramel-200 font-semibold block">Tu Pedido</span>
+            <span id="floating-cart-status" class="text-sm font-medium text-cream">Canasta vacía</span>
+          </div>
+        </div>
+
+        <!-- Derecha: Total y Flecha -->
+        <div class="flex items-center gap-2">
+          <div class="text-right">
+            <span class="text-[10px] text-caramel-200/80 uppercase block">Total</span>
+            <span id="floating-cart-total" class="text-base sm:text-lg font-bold text-caramel-300">$0.00</span>
+          </div>
+          <div class="bg-caramel-500 text-white p-2 rounded-xl">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= MODAL / DRAWER DEL CARRITO & CHECKOUT ================= -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden transition-opacity duration-300">
+    <!-- Contenedor del Drawer -->
+    <div class="fixed inset-y-0 right-0 max-w-lg w-full bg-cream shadow-2xl flex flex-col h-full transform transition-transform duration-300 translate-x-full" id="cart-drawer-panel">
+      
+      <!-- Header del Drawer -->
+      <div class="p-4 sm:p-5 bg-gradient-to-r from-chocolate to-chocolate-dark text-cream flex items-center justify-between border-b border-caramel-700/50">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-caramel-500/30 flex items-center justify-center text-caramel-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base sm:text-lg font-serif font-bold text-white">Tu Canasta Dulce</h3>
+            <span class="text-[11px] text-caramel-200">Revisa tu pedido y completa los datos</span>
+          </div>
+        </div>
+        <button onclick="closeCart()" class="text-cream/80 hover:text-white p-2 rounded-full hover:bg-white/10 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Contenido Scrolleable -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 no-scrollbar">
+
+        <!-- Lista de Productos en Carrito -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-caramel-700">Ítems Seleccionados</h4>
+          <div id="cart-items-list" class="space-y-2.5">
+            <!-- Items generados dinámicamente -->
+          </div>
+        </div>
+
+        <!-- Resumen de Costos -->
+        <div class="bg-vanilla border border-caramel-200/80 rounded-2xl p-4 space-y-2">
+          <div class="flex justify-between items-center text-xs text-chocolate/80">
+            <span>Subtotal de Alfajores</span>
+            <span id="drawer-subtotal" class="font-semibold text-chocolate">$0.00 USD</span>
+          </div>
+          <div class="flex justify-between items-center text-xs text-chocolate/80">
+            <span>Servicio de Entrega</span>
+            <span id="drawer-delivery-note" class="font-medium text-caramel-600">A coordinar / Retiro gratis</span>
+          </div>
+          <div class="border-t border-caramel-200/80 pt-2 flex justify-between items-center">
+            <span class="text-sm font-bold text-chocolate">Total a Pagar</span>
+            <span id="drawer-total" class="text-lg font-bold text-caramel-600">$0.00 USD</span>
+          </div>
+        </div>
+
+        <!-- Formulario de Datos del Cliente -->
+        <div class="space-y-4 pt-1">
+          <div class="flex items-center gap-1.5 border-b border-caramel-100 pb-1.5">
+            <svg class="w-4 h-4 text-caramel-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-caramel-700">Datos para la Entrega</h4>
+          </div>
+
+          <!-- Nombre y Apellido -->
+          <div>
+            <label for="client-name" class="block text-xs font-semibold text-chocolate mb-1">
+              Nombre y Apellido <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="client-name" placeholder="Ej. Valentina Morales" 
+              class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-caramel-200 focus:border-caramel-500 focus:ring-2 focus:ring-caramel-200 bg-white transition outline-none text-chocolate placeholder-stone-400">
+            <span id="name-error" class="text-[11px] text-red-500 hidden mt-1">Por favor ingresa tu nombre completo.</span>
+          </div>
+
+          <!-- Tipo de Entrega -->
+          <div>
+            <label class="block text-xs font-semibold text-chocolate mb-1.5">
+              Tipo de Entrega <span class="text-red-500">*</span>
+            </label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="delivery-option flex items-center justify-center gap-2 p-2.5 rounded-xl border-2 border-caramel-500 bg-caramel-50 text-chocolate font-medium text-xs cursor-pointer transition">
+                <input type="radio" name="delivery-type" value="Retiro personal" checked onchange="handleDeliveryChange()" class="hidden">
+                <span>🏬 Retiro personal</span>
+              </label>
+              <label class="delivery-option flex items-center justify-center gap-2 p-2.5 rounded-xl border-2 border-caramel-200 bg-white text-chocolate/80 font-medium text-xs cursor-pointer transition">
+                <input type="radio" name="delivery-type" value="Delivery" onchange="handleDeliveryChange()" class="hidden">
+                <span>🛵 Delivery</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Campo Dirección (Condicional para Delivery) -->
+          <div id="address-container" class="hidden transition-all duration-300">
+            <label for="client-address" class="block text-xs font-semibold text-chocolate mb-1">
+              Dirección exacta / Punto de referencia <span class="text-red-500">*</span>
+            </label>
+            <textarea id="client-address" rows="2" placeholder="Ej: Urb. Los Mangos, Calle 4, Casa #12 frente a la plaza..." 
+              class="w-full px-3.5 py-2 text-sm rounded-xl border border-caramel-200 focus:border-caramel-500 focus:ring-2 focus:ring-caramel-200 bg-white transition outline-none text-chocolate placeholder-stone-400 resize-none"></textarea>
+            <span id="address-error" class="text-[11px] text-red-500 hidden mt-0.5">La dirección es requerida para entregas con Delivery.</span>
+          </div>
+
+          <!-- Método de Pago -->
+          <div>
+            <label class="block text-xs font-semibold text-chocolate mb-1.5">
+              Método de Pago <span class="text-red-500">*</span>
+            </label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="payment-option flex items-center justify-center gap-2 p-2.5 rounded-xl border-2 border-caramel-500 bg-caramel-50 text-chocolate font-medium text-xs cursor-pointer transition">
+                <input type="radio" name="payment-method" value="Pago Móvil Bancamiga" checked onchange="handlePaymentChange()" class="hidden">
+                <span>📱 Pago Móvil</span>
+              </label>
+              <label class="payment-option flex items-center justify-center gap-2 p-2.5 rounded-xl border-2 border-caramel-200 bg-white text-chocolate/80 font-medium text-xs cursor-pointer transition">
+                <input type="radio" name="payment-method" value="Efectivo Divisas ($)" onchange="handlePaymentChange()" class="hidden">
+                <span>💵 Efectivo ($)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SECCIÓN DE DATOS DE PAGO MÓVIL (Tarjeta Destacada) -->
+          <div id="pago-movil-card" class="bg-gradient-to-br from-chocolate to-chocolate-dark text-cream p-4 rounded-2xl shadow-warm border border-caramel-500/30 transition-all">
+            <div class="flex items-center justify-between mb-2.5 border-b border-caramel-500/20 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-caramel-400"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-caramel-200">Datos Pago Móvil</span>
+              </div>
+              <span class="text-[11px] bg-caramel-500/30 text-caramel-200 px-2 py-0.5 rounded-md font-mono">Bancamiga</span>
+            </div>
+
+            <div class="space-y-1.5 text-xs text-cream/90 font-mono">
+              <div class="flex justify-between py-0.5">
+                <span class="text-caramel-200/80 font-sans">Banco:</span>
+                <span class="font-semibold">Bancamiga (0172)</span>
+              </div>
+              <div class="flex justify-between py-0.5">
+                <span class="text-caramel-200/80 font-sans">Teléfono:</span>
+                <span class="font-semibold text-white tracking-wider">0412-5234402</span>
+              </div>
+              <div class="flex justify-between py-0.5">
+                <span class="text-caramel-200/80 font-sans">Cédula:</span>
+                <span class="font-semibold text-white">24.319.246</span>
+              </div>
+            </div>
+
+            <!-- Botón Copiar Datos -->
+            <button type="button" onclick="copyPagoMovilData()" id="copy-btn" class="mt-3 w-full py-2 px-3 bg-caramel-500 hover:bg-caramel-600 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition tap-effect shadow-sm">
+              <svg id="copy-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+              </svg>
+              <span id="copy-btn-text">Copiar datos para transferir</span>
+            </button>
+          </div>
+
+          <!-- Comentarios o notas especiales -->
+          <div>
+            <label for="client-notes" class="block text-xs font-semibold text-chocolate mb-1">
+              Comentarios o notas especiales <span class="text-chocolate/50 font-normal">(Opcional)</span>
+            </label>
+            <input type="text" id="client-notes" placeholder="Ej: Es para un regalo / Poner lazo / Sin azúcar extra" 
+              class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-caramel-200 focus:border-caramel-500 focus:ring-2 focus:ring-caramel-200 bg-white transition outline-none text-chocolate placeholder-stone-400">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer del Drawer con Botón Principal de WhatsApp -->
+      <div class="p-4 bg-white border-t border-caramel-100 shadow-inner">
+        <button onclick="confirmOrderWhatsApp()" id="checkout-btn" class="w-full bg-wa hover:bg-wa-dark text-white font-bold py-3.5 px-4 rounded-2xl shadow-glow-wa flex items-center justify-center gap-2.5 transition transform active:scale-98 tap-effect">
+          <!-- WhatsApp Icon -->
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span class="text-sm font-bold tracking-wide">Confirmar Pedido por WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= NOTIFICACIÓN TOAST ================= -->
+  <div id="toast" class="fixed top-5 right-5 z-50 bg-chocolate text-cream px-4 py-3 rounded-2xl shadow-warm-lg flex items-center gap-2.5 text-xs font-medium transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none">
+    <span id="toast-icon" class="text-caramel-400 text-base">✨</span>
+    <span id="toast-message">Notificación</span>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // 1. DATA DE PRODUCTOS
+    const PRODUCTS = [
+      {
+        id: 'pack-duo',
+        name: 'Pack Dúo de Alfajores',
+        price: 1.50,
+        description: '1 Tradicional de maicena + 1 Especial de chocolate con relleno extra de dulce de leche.',
+        badge: 'Más Vendido ⭐',
+        // Imagen apetecible de alfajores / repostería
+        image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'tradicional-maicena',
+        name: 'Alfajor Tradicional',
+        price: 0.80,
+        description: 'Clásica masa de maicena extra suave, dulce de leche repostero y borde de coco rallado.',
+        badge: 'Clásico Artesanal',
+        image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'especial-chocolate',
+        name: 'Alfajor Especial de Chocolate',
+        price: 0.80,
+        description: 'Masa con cacao amargo, abundante dulce de leche y cobertura/chispas.',
+        badge: 'Chocoholic 🍫',
+        image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80'
+      }
+    ];
+
+    // 2. ESTADO DE LA APLICACIÓN
+    // items: { [productId]: quantity }
+    let cart = {};
+    // Cantidad local por tarjeta antes de agregar
+    let cardQuantities = {
+      'pack-duo': 1,
+      'tradicional-maicena': 1,
+      'especial-chocolate': 1
+    };
+
+    // 3. INICIALIZACIÓN
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+    });
+
+    // 4. RENDERIZAR PRODUCTOS
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = PRODUCTS.map(prod => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-caramel-100 shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between group">
+          
+          <!-- Imagen & Badge -->
+          <div class="relative h-48 sm:h-52 overflow-hidden bg-vanilla">
+            <img 
+              src="${prod.image}" 
+              alt="${prod.name}" 
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80';"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            
+            <!-- Badge -->
+            <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-chocolate text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm border border-caramel-100">
+              ${prod.badge}
+            </span>
+
+            <!-- Precio Flotante -->
+            <span class="absolute bottom-3 right-3 bg-chocolate/90 backdrop-blur-md text-caramel-300 text-sm font-bold px-3 py-1 rounded-xl shadow">
+              $${prod.price.toFixed(2)}
+            </span>
+          </div>
+
+          <!-- Contenido de la Card -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif font-bold text-lg text-chocolate mb-1 leading-snug">
+                ${prod.name}
+              </h3>
+              <p class="text-xs text-chocolate/75 leading-relaxed line-clamp-3 mb-4">
+                ${prod.description}
+              </p>
+            </div>
+
+            <!-- Selector de Cantidad & Botón Agregar -->
+            <div class="pt-3 border-t border-caramel-50 flex items-center gap-2">
+              <!-- Selector (+ / -) -->
+              <div class="flex items-center border border-caramel-200 rounded-xl bg-vanilla p-0.5">
+                <button 
+                  onclick="changeCardQty('${prod.id}', -1)"
+                  class="w-7 h-7 flex items-center justify-center text-chocolate hover:bg-caramel-200/50 rounded-lg text-sm font-bold transition active:scale-95"
+                  aria-label="Disminuir cantidad">
+                  -
+                </button>
+                <span id="card-qty-${prod.id}" class="w-7 text-center font-semibold text-xs text-chocolate">
+                  ${cardQuantities[prod.id] || 1}
+                </span>
+                <button 
+                  onclick="changeCardQty('${prod.id}', 1)"
+                  class="w-7 h-7 flex items-center justify-center text-chocolate hover:bg-caramel-200/50 rounded-lg text-sm font-bold transition active:scale-95"
+                  aria-label="Aumentar cantidad">
+                  +
+                </button>
+              </div>
+
+              <!-- Botón Agregar -->
+              <button 
+                onclick="addToCart('${prod.id}')"
+                class="flex-1 bg-caramel-500 hover:bg-caramel-600 text-white text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition tap-effect">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+                <span>Agregar</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      `).join('');
+    }
+
+    // 5. MANEJO DE CANTIDAD EN LA TARJETA
+    function changeCardQty(productId, delta) {
+      let current = cardQuantities[productId] || 1;
+      current = Math.max(1, current + delta);
+      cardQuantities[productId] = current;
+      const el = document.getElementById(`card-qty-${productId}`);
+      if (el) el.innerText = current;
+    }
+
+    // 6. AGREGAR AL CARRITO
+    function addToCart(productId) {
+      const qtyToAdd = cardQuantities[productId] || 1;
+      cart[productId] = (cart[productId] || 0) + qtyToAdd;
+      
+      const prod = PRODUCTS.find(p => p.id === productId);
+      showToast(`¡${qtyToAdd}x ${prod.name} agregado al pedido!`, '🍪');
+      
+      // Reset contador local en la tarjeta a 1
+      cardQuantities[productId] = 1;
+      const el = document.getElementById(`card-qty-${productId}`);
+      if (el) el.innerText = 1;
+
+      updateCartUI();
+    }
+
+    // 7. MODIFICAR CANTIDAD DENTRO DEL CARRITO
+    function updateCartItemQty(productId, delta) {
+      if (!cart[productId]) return;
+      cart[productId] += delta;
+      if (cart[productId] <= 0) {
+        delete cart[productId];
+      }
+      updateCartUI();
+    }
+
+    // 8. ELIMINAR ÍTEM DEL CARRITO
+    function removeCartItem(productId) {
+      delete cart[productId];
+      updateCartUI();
+    }
+
+    // 9. CÁLCULO DE TOTALES
+    function getCartTotals() {
+      let totalCount = 0;
+      let subtotal = 0;
+
+      for (const [id, qty] of Object.entries(cart)) {
+        const prod = PRODUCTS.find(p => p.id === id);
+        if (prod && qty > 0) {
+          totalCount += qty;
+          subtotal += prod.price * qty;
+        }
+      }
+
+      return { totalCount, subtotal };
+    }
+
+    // 10. ACTUALIZAR INTERFAZ DEL CARRITO
+    function updateCartUI() {
+      const { totalCount, subtotal } = getCartTotals();
+
+      // Barra flotante
+      const countBadge = document.getElementById('floating-cart-count');
+      const statusLabel = document.getElementById('floating-cart-status');
+      const totalLabel = document.getElementById('floating-cart-total');
+      const drawerSubtotal = document.getElementById('drawer-subtotal');
+      const drawerTotal = document.getElementById('drawer-total');
+
+      countBadge.innerText = totalCount;
+      totalLabel.innerText = `$${subtotal.toFixed(2)}`;
+      drawerSubtotal.innerText = `$${subtotal.toFixed(2)} USD`;
+      drawerTotal.innerText = `$${subtotal.toFixed(2)} USD`;
+
+      if (totalCount === 0) {
+        statusLabel.innerText = 'Canasta vacía';
+      } else {
+        statusLabel.innerText = `${totalCount} ${totalCount === 1 ? 'alfajor' : 'alfajores'} listos`;
+      }
+
+      // Renderizar items dentro del drawer
+      renderCartDrawerItems();
+    }
+
+    // 11. RENDERIZAR LISTA DENTRO DEL DRAWER
+    function renderCartDrawerItems() {
+      const container = document.getElementById('cart-items-list');
+      const entries = Object.entries(cart).filter(([_, qty]) => qty > 0);
+
+      if (entries.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 px-4 bg-vanilla rounded-2xl border border-dashed border-caramel-200">
+            <span class="text-4xl block mb-2">🧁</span>
+            <p class="text-sm font-semibold text-chocolate">Tu canasta está vacía</p>
+            <p class="text-xs text-chocolate/60 mt-1 mb-4">Selecciona tus alfajores favoritos del catálogo para armar tu pedido.</p>
+            <button onclick="closeCart()" class="text-xs bg-caramel-500 text-white font-medium px-4 py-2 rounded-xl">
+              Ver Catálogo
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = entries.map(([id, qty]) => {
+        const prod = PRODUCTS.find(p => p.id === id);
+        if (!prod) return '';
+        const itemTotal = prod.price * qty;
+
+        return `
+          <div class="flex items-center justify-between gap-3 p-3 bg-white rounded-2xl border border-caramel-100 shadow-sm">
+            <img src="${prod.image}" alt="${prod.name}" class="w-12 h-12 rounded-xl object-cover border border-caramel-100">
+            
+            <div class="flex-1 min-w-0">
+              <h5 class="text-xs font-semibold text-chocolate truncate">${prod.name}</h5>
+              <div class="text-[11px] text-chocolate/70">
+                $${prod.price.toFixed(2)} c/u • <span class="font-bold text-caramel-600">$${itemTotal.toFixed(2)}</span>
+              </div>
+            </div>
+
+            <!-- Controles -->
+            <div class="flex items-center gap-1.5">
+              <div class="flex items-center border border-caramel-200 rounded-lg bg-vanilla p-0.5">
+                <button onclick="updateCartItemQty('${prod.id}', -1)" class="w-5 h-5 flex items-center justify-center text-xs font-bold text-chocolate hover:bg-caramel-200/50 rounded">
+                  -
+                </button>
+                <span class="w-6 text-center text-xs font-bold text-chocolate">${qty}</span>
+                <button onclick="updateCartItemQty('${prod.id}', 1)" class="w-5 h-5 flex items-center justify-center text-xs font-bold text-chocolate hover:bg-caramel-200/50 rounded">
+                  +
+                </button>
+              </div>
+
+              <!-- Botón Eliminar -->
+              <button onclick="removeCartItem('${prod.id}')" class="text-stone-400 hover:text-red-500 p-1 transition" title="Quitar ítem">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 12. ABRIR Y CERRAR DRAWER
+    function openCart() {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      const panel = document.getElementById('cart-drawer-panel');
+      overlay.classList.remove('hidden');
+      setTimeout(() => {
+        panel.classList.remove('translate-x-full');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      const panel = document.getElementById('cart-drawer-panel');
+      panel.classList.add('translate-x-full');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    // Cerrar al dar clic en el backdrop
+    document.getElementById('cart-drawer-overlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('cart-drawer-overlay')) {
+        closeCart();
+      }
+    });
+
+    // 13. MANEJO DE CAMBIO DE TIPO DE ENTREGA (RETIRO / DELIVERY)
+    function handleDeliveryChange() {
+      const selectedDelivery = document.querySelector('input[name="delivery-type"]:checked').value;
+      const addressContainer = document.getElementById('address-container');
+      const deliveryNote = document.getElementById('drawer-delivery-note');
+
+      // Actualizar estilos visuales de los labels
+      document.querySelectorAll('.delivery-option').forEach(label => {
+        const input = label.querySelector('input');
+        if (input.checked) {
+          label.classList.add('border-caramel-500', 'bg-caramel-50', 'text-chocolate');
+          label.classList.remove('border-caramel-200', 'bg-white', 'text-chocolate/80');
+        } else {
+          label.classList.remove('border-caramel-500', 'bg-caramel-50', 'text-chocolate');
+          label.classList.add('border-caramel-200', 'bg-white', 'text-chocolate/80');
+        }
+      });
+
+      if (selectedDelivery === 'Delivery') {
+        addressContainer.classList.remove('hidden');
+        deliveryNote.innerText = 'Costo adicional según zona';
+      } else {
+        addressContainer.classList.add('hidden');
+        deliveryNote.innerText = 'Retiro en punto físico (Gratis)';
+        document.getElementById('address-error').classList.add('hidden');
+      }
+    }
+
+    // 14. MANEJO DE CAMBIO DE MÉTODO DE PAGO
+    function handlePaymentChange() {
+      const selectedPayment = document.querySelector('input[name="payment-method"]:checked').value;
+      const card = document.getElementById('pago-movil-card');
+
+      document.querySelectorAll('.payment-option').forEach(label => {
+        const input = label.querySelector('input');
+        if (input.checked) {
+          label.classList.add('border-caramel-500', 'bg-caramel-50', 'text-chocolate');
+          label.classList.remove('border-caramel-200', 'bg-white', 'text-chocolate/80');
+        } else {
+          label.classList.remove('border-caramel-500', 'bg-caramel-50', 'text-chocolate');
+          label.classList.add('border-caramel-200', 'bg-white', 'text-chocolate/80');
+        }
+      });
+
+      if (selectedPayment === 'Pago Móvil Bancamiga') {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    }
+
+    // 15. COPIAR DATOS DE PAGO MÓVIL
+    function copyPagoMovilData() {
+      const pagoMovilText = "Bancamiga (0172)\nTeléfono: 04125234402\nC.I.: 24319246";
+
+      const copyBtnText = document.getElementById('copy-btn-text');
+      const copyBtn = document.getElementById('copy-btn');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pagoMovilText).then(() => {
+          triggerCopiedFeedback();
+        }).catch(() => {
+          fallbackCopyText(pagoMovilText);
+        });
+      } else {
+        fallbackCopyText(pagoMovilText);
+      }
+
+      function triggerCopiedFeedback() {
+        copyBtnText.innerText = '¡Copiado con éxito! ✅';
+        copyBtn.classList.add('bg-wa', 'hover:bg-wa-dark');
+        copyBtn.classList.remove('bg-caramel-500', 'hover:bg-caramel-600');
+        showToast('¡Datos de Pago Móvil copiados al portapapeles!', '📋');
+
+        setTimeout(() => {
+          copyBtnText.innerText = 'Copiar datos para transferir';
+          copyBtn.classList.remove('bg-wa', 'hover:bg-wa-dark');
+          copyBtn.classList.add('bg-caramel-500', 'hover:bg-caramel-600');
+        }, 3000);
+      }
+
+      function fallbackCopyText(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          triggerCopiedFeedback();
+        } catch (err) {
+          showToast('No se pudo copiar automáticamente', '⚠️');
+        }
+        document.body.removeChild(textArea);
+      }
+    }
+
+    // 16. TOAST FEEDBACK NOTIFICACIÓN
+    function showToast(message, icon = '✨') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+
+      toastMsg.innerText = message;
+      toastIcon.innerText = icon;
+
+      toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-[-100px]', 'opacity-0');
+      }, 3000);
+    }
+
+    // 17. VALIDACIÓN Y ENVÍO DEL PEDIDO A WHATSAPP
+    function confirmOrderWhatsApp() {
+      const { totalCount, subtotal } = getCartTotals();
+
+      // Validación 1: Carrito vacío
+      if (totalCount === 0) {
+        showToast('Debes agregar al menos un producto al pedido', '⚠️');
+        return;
+      }
+
+      // Validación 2: Nombre de cliente
+      const nameInput = document.getElementById('client-name');
+      const nameVal = nameInput.value.trim();
+      const nameError = document.getElementById('name-error');
+
+      if (!nameVal) {
+        nameError.classList.remove('hidden');
+        nameInput.focus();
+        nameInput.classList.add('border-red-500');
+        return;
+      } else {
+        nameError.classList.add('hidden');
+        nameInput.classList.remove('border-red-500');
+      }
+
+      // Validación 3: Dirección si es Delivery
+      const deliveryType = document.querySelector('input[name="delivery-type"]:checked').value;
+      const addressInput = document.getElementById('client-address');
+      const addressVal = addressInput.value.trim();
+      const addressError = document.getElementById('address-error');
+
+      if (deliveryType === 'Delivery' && !addressVal) {
+        addressError.classList.remove('hidden');
+        addressInput.focus();
+        addressInput.classList.add('border-red-500');
+        return;
+      } else {
+        addressError.classList.add('hidden');
+        addressInput.classList.remove('border-red-500');
+      }
+
+      // Método de Pago & Notas
+      const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+      const notesVal = document.getElementById('client-notes').value.trim();
+
+      // Construcción del Detalle de Productos
+      let orderItemsLines = [];
+      for (const [id, qty] of Object.entries(cart)) {
+        if (qty > 0) {
+          const prod = PRODUCTS.find(p => p.id === id);
+          if (prod) {
+            const itemSub = (prod.price * qty).toFixed(2);
+            orderItemsLines.push(`- ${qty}x ${prod.name} ($${itemSub})`);
+          }
+        }
+      }
+
+      // Modalidad formateada
+      let modalidadTexto = 'Retiro personal';
+      if (deliveryType === 'Delivery') {
+        modalidadTexto = `Delivery en ${addressVal}`;
+      }
+
+      // Nota adicional
+      const notaTexto = notesVal ? notesVal : 'Sin notas especiales';
+
+      // Mensaje con formato exacto solicitado
+      const message = 
+`¡Hola Angii Dulcería! 🍪✨ Quiero realizar el siguiente pedido:
+
+🛍️ DETALLE DE LA ORDEN:
+${orderItemsLines.join('\n')}
+
+💰 TOTAL A PAGAR: $${subtotal.toFixed(2)} USD
+
+👤 DATOS DEL CLIENTE:
+• Nombre: ${nameVal}
+• Modalidad: ${modalidadTexto}
+• Forma de pago: ${paymentMethod}
+• Nota: ${notaTexto}
+
+Quedo atento/a a la confirmación para enviar el comprobante. ¡Gracias!`;
+
+      // Número WhatsApp oficial del negocio
+      const whatsappPhone = '584125234402';
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
+
+      // Abrir WhatsApp en nueva pestaña
+      window.open(whatsappUrl, '_blank');
+      showToast('¡Redirigiendo a WhatsApp...', '📲');
+    }
+  </script>
+</body>
+</html>
